@@ -19,8 +19,7 @@ func register(res http.ResponseWriter, req *http.Request){
 	  <input type="password" id="pwd" name="pwd">
 	  <input type="submit" value="Register"></form></body></html>`)
 	}else if req.Method=="POST"{
-		log.Println("OH SHIT A POST REQUEST")
-
+		
 		err := req.ParseForm()
 		if err != nil {log.Fatal(err)}
 
