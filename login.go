@@ -20,8 +20,6 @@ func login(res http.ResponseWriter, req *http.Request){
 	  <input type="password" id="pwd" name="pwd">
 	  <input type="submit" value="Login"></form></body></html>`)
 	}else if req.Method=="POST"{
-		log.Println("OH SHIT A POST REQUEST")
-
 		err := req.ParseForm()
 		if err != nil {log.Fatal(err)}
 
