@@ -14,7 +14,7 @@ import	(
 
 
 func login(res http.ResponseWriter, req *http.Request){
-	if req.Method=="GET"{fmt.Fprint(res,`<!DOCTYPE html><html><head><title>WAREHOUSE 11</title></head>
+	if req.Method=="GET"{fmt.Fprint(res,`<!DOCTYPE html><html><head><title>Sample</title></head>
 	<body><form method="post"><br>
 	  <input type="text" id="id" name="id"><br>
 	  <input type="password" id="pwd" name="pwd">
@@ -34,7 +34,6 @@ func login(res http.ResponseWriter, req *http.Request){
 				Secure: true,
 				MaxAge: 0,
 			}
-			
 			http.SetCookie(res, &session)
 				
 		}

@@ -13,7 +13,7 @@ import	(
 
 
 func register(res http.ResponseWriter, req *http.Request){
-	if req.Method=="GET"{fmt.Fprint(res,`<!DOCTYPE html><html><head><title>WAREHOUSE 11</title></head>
+	if req.Method=="GET"{fmt.Fprint(res,`<!DOCTYPE html><html><head><title>Sample</title></head>
 	<body><form method="post"><br>
 	  <input type="text" id="id" name="id" name=maxlength="10"><br>
 	  <input type="password" id="pwd" name="pwd">
@@ -54,14 +54,8 @@ var(authid =id
 	if err != nil {log.Fatal(err)}
 	defer db.Close()
 
-/*	hashrow:= db.QueryRow(`select pwd from USER where userid  ="`+authid+`";`)
-	hashrow.Scan(&hash)
-		if err != nil {log.Fatal(err)}*/
 	authpwdhashed, err := bcrypt.GenerateFromPassword(authpwd, bcrypt.DefaultCost)
 	if err != nil {log.Fatal(err)}
-	/*log.Println("REGACC///UNHASHED:",string(authpwd),"HASHED:",string(authpwdhashed))
-	log.Println("REGACC///UNHASHED:",string(authpwd)==string(authpwdhashed))
-	log.Println("cmp",bcrypt.CompareHashAndPassword(authpwdhashed,authpwd))*/
 	
  _, err = db.Exec(`insert into user values ("`+authid+`","`+string(authpwdhashed)+`","`+authid+`",1,1852000,0,"pics/johnny.png",1852000,0,1852000,0,-1,"");`)
 		if err != nil {log.Fatal(err)}
