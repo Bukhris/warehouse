@@ -49,7 +49,7 @@ var(authid =id
 		log.Println("No log file found, Log Created.")
 	}*/
 
-	db, err := sql.Open("sqlite3", "./sample.db")
+	db, err := sql.Open("sqlite3", "./main.db")
 	log.Println("website DB opened.")
 	if err != nil {log.Fatal(err)}
 	defer db.Close()
@@ -57,7 +57,7 @@ var(authid =id
 	authpwdhashed, err := bcrypt.GenerateFromPassword(authpwd, bcrypt.DefaultCost)
 	if err != nil {log.Fatal(err)}
 	
- _, err = db.Exec(`insert into user values ("`+authid+`","`+string(authpwdhashed)+`","`+authid+`",1,1852000,0,"pics/johnny.png",1852000,0,1852000,0,-1,"");`)
+ _, err = db.Exec(`insert into USER values ("`+authid+`","Confirmation goes here","`+string(authpwdhashed)+`","`+authid+`",1,1852000,0,"pic/to/path",1852000,0,1852000,0,-1,"");`)
 		if err != nil {log.Fatal(err)}
 
 	
